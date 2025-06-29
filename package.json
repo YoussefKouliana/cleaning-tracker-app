@@ -3,7 +3,7 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
-    "scripts": {
+  "scripts": {
     "dev": "vite",
     "dev:emulators": "cross-env VITE_USE_EMULATORS=true vite",
     "build": "tsc && vite build",
@@ -11,6 +11,7 @@
     "emulators": "firebase emulators:start --project cleaning-tracker-54e8a"
   },
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@tailwindcss/vite": "^4.1.9",
     "clsx": "^2.1.1",
     "firebase": "^11.9.1",

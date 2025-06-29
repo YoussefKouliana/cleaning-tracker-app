@@ -27,14 +27,8 @@ const LoginForm: React.FC<LoginFormProps> = ({
   return (
     <div className="min-h-screen bg-gradient-to-br from-pink-50 to-purple-100 flex items-center justify-center px-4 py-8">
       <div className="bg-white rounded-xl shadow-lg p-6 sm:p-8 w-full max-w-md">
+        
         <div className="text-center mb-6 sm:mb-8">
-          <div className="w-14 h-14 mx-auto mb-3">
-            <img
-              src="./src/images/fluffycandylogo.jpg"
-              alt="Fluffy Candy Logo"
-              className="w-full h-full object-contain rounded-full"
-            />
-          </div>
           <h1 className="text-xl sm:text-2xl font-bold text-gray-900">Fluffy Candy Cleaning</h1>
           <p className="text-sm text-gray-600 mt-1">Log in to track machine cleanings</p>
         </div>
@@ -92,13 +86,15 @@ const LoginForm: React.FC<LoginFormProps> = ({
             🧪 Create Test Users
           </button>
           <div className="text-xs text-gray-500 space-y-1 text-center">
-            <p><strong>Test Accounts:</strong></p>
-            <p>Cleaner: cleaner@yourdomain.com / password123</p>
-            <p>Admin: admin@yourdomain.com / password123</p>
+            <p><strong>Admin Accounts:</strong></p>
+            <p>Superior Admin: superadmin@fluffycandy.se</p>
+            <p>Regular Admin: admin@fluffycandy.se</p>
+            <p>Test Cleaner: cleaner@yourdomain.com</p>
           </div>
         </div>
       </div>
     </div>
   );
 };
+
 export default LoginForm;

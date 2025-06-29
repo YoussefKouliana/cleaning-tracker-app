@@ -1,4 +1,4 @@
-// CleaningTable.tsx
+// src/components/CleaningTable.tsx
 import React from 'react';
 import type { Cleaning } from '../types';
 
@@ -6,6 +6,20 @@ interface Props {
   cleanings: Cleaning[];
   paymentRate: number;
 }
+
+// Helper function to safely convert timestamps to Date
+const convertTimestampToDate = (timestamp: any): Date => {
+  if (typeof timestamp === 'object' && timestamp !== null && 'toDate' in timestamp) {
+    // Firestore Timestamp
+    return timestamp.toDate();
+  } else if (timestamp instanceof Date) {
+    // JavaScript Date
+    return timestamp;
+  } else {
+    // String timestamp
+    return new Date(timestamp as string);
+  }
+};
 
 const CleaningTable: React.FC<Props> = ({ cleanings, paymentRate }) => (
   <div>
@@ -24,9 +38,9 @@ const CleaningTable: React.FC<Props> = ({ cleanings, paymentRate }) => (
           {cleanings.slice(0, 10).map((c) => (
             <tr key={c.id} className="border-b hover:bg-pink-50 transition">
               <td className="py-2 px-2">{c.cleanerName}</td>
-              <td className="py-2 px-2">{new Date(c.timestamp).toLocaleString()}</td>
+              <td className="py-2 px-2">{convertTimestampToDate(c.timestamp).toLocaleString()}</td>
               <td className="py-2 px-2">{c.machine}</td>
-              <td className="py-2 px-2 text-right">${paymentRate.toFixed(2)}</td>
+              <td className="py-2 px-2 text-right">{paymentRate.toFixed(2)} SEK</td>
             </tr>
           ))}
         </tbody>

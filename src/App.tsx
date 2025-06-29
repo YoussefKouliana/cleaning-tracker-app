@@ -1,8 +1,14 @@
-import CleaningTracker from './components/CleaningTracker'
-import './index.css'
+// src/App.tsx
+import { LanguageProvider } from './contexts/LanguageContext';
+import CleaningTracker from './components/CleaningTracker';
+import './index.css';
 
 function App() {
-  return <CleaningTracker />
+  return (
+    <LanguageProvider>
+      <CleaningTracker />
+    </LanguageProvider>
+  );
 }
 
-export default App
+export default App;
